@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
+import axios from 'axios';
 
 const Signup = () => {
 
@@ -9,7 +10,7 @@ const Signup = () => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        axios.post('', {name, email, password})
+        axios.post('http://localhost:3001/register', {name, email, password})
         .then(result => console.log(result))
         .catch(err => console.log(err))
     }
@@ -62,7 +63,7 @@ const Signup = () => {
                 </form>
 
                 <p className="text-center">Already Have an Account</p>
-                <Link to='/login' className="btn btn-default border w-100 bg-light rounded-0        text-decoration-none">Login</Link>
+                <Link to='/login' className="btn btn-default border w-100 bg-light rounded-0 text-decoration-none">Login</Link>
             </div>
         </div>
     )
